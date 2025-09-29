@@ -4,87 +4,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212; /* Dark mode */
-    color: #f1f1f1;
-    line-height: 1.6;
+    background-color: #121212;
+    color: #ffffff;
 }
 
-header {
-    background: #1e1e1e;
-    padding: 1rem;
-    text-align: center;
-    border-bottom: 2px solid #333;
-}
-
-header h1 {
-    font-size: 2rem;
-    color: #ff4655; /* cor destaque */
-}
-
-nav {
-    margin-top: 0.5rem;
-}
-
-nav a {
-    color: #f1f1f1;
-    margin: 0 1rem;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #ff4655;
-}
-
-main {
-    padding: 2rem;
-    max-width: 900px;
-    margin: auto;
-}
-
-section {
-    margin-bottom: 3rem;
-}
-
-section h2 {
-    margin-bottom: 1rem;
-    color: #ff4655;
-    border-left: 4px solid #ff4655;
-    padding-left: 0.5rem;
-}
-
-.player {
-    margin-bottom: 1.5rem;
-    background: #1e1e1e;
-    padding: 1rem;
+.soundcloud {
+    display: block;
+    margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    max-width: 90%;
+    width: 600px;
 }
 
-iframe {
-    width: 100%;
-    height: 166px;
-    border: none;
+.youtube {
+    display: block;
+    margin: 20px auto;
     border-radius: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 1rem;
-    background: #1e1e1e;
-    border-top: 2px solid #333;
-    font-size: 0.9rem;
-}
-
-footer a {
-    color: #ff4655;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
+    max-width: 90%;
+    width: 600px;
 }
