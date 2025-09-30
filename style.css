@@ -116,14 +116,14 @@ footer {
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 2px 12px 0 rgba(58,28,113,0.15);
+    box-shadow: 0 2px 12px 0 rgba(58, 28, 113, 0.15);
     transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
 #btn-carregar-playlist:hover {
     background: linear-gradient(90deg, #43cea2 0%, #d76d77 50%, #3a1c71 100%);
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 4px 18px 0 rgba(67,206,162,0.18);
+    box-shadow: 0 4px 18px 0 rgba(67, 206, 162, 0.18);
 }
 
 .btn-carregar-youtube {
@@ -137,14 +137,14 @@ footer {
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 2px 12px 0 rgba(58,28,113,0.15);
+    box-shadow: 0 2px 12px 0 rgba(58, 28, 113, 0.15);
     transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-carregar-youtube:hover {
     background: linear-gradient(90deg, #43cea2 0%, #d76d77 50%, #3a1c71 100%);
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 4px 18px 0 rgba(67,206,162,0.18);
+    box-shadow: 0 4px 18px 0 rgba(67, 206, 162, 0.18);
 }
 
 .responsive-iframe {
@@ -152,16 +152,18 @@ footer {
     width: 100%;
     max-width: 700px;
     margin: 0 auto 30px auto;
-    padding-bottom: 56.25%; /* Proporção 16:9 */
+    padding-bottom: 56.25%;
+    /* Proporção 16:9 */
     height: 0;
     overflow: hidden;
     border-radius: 18px;
-    box-shadow: 0 2px 18px 0 rgba(58,28,113,0.12);
+    box-shadow: 0 2px 18px 0 rgba(58, 28, 113, 0.12);
 }
 
 .responsive-iframe iframe {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     border: none;
@@ -170,7 +172,8 @@ footer {
 @media (max-width: 600px) {
     .responsive-iframe {
         max-width: 100%;
-        padding-bottom: 70%; /* Mais alto para mobile */
+        padding-bottom: 70%;
+        /* Mais alto para mobile */
         border-radius: 10px;
     }
 
