@@ -13,7 +13,7 @@ Here you’ll find some of my projects, exploring different styles and sounds.
 Music production is my favorite hobby, and this space was created to share my sonic ideas and growth as an independent producer.
 
 ## 🌐 Acesse meu portfólio - Check out my portfolio 
-🔗 [xampsbeatz - Portfólio Musical](https://alexandrexan.github.io/xampsbeatz/)  
+🔗 [XAMPSBEATZ](https://alexandrexan.github.io/xampsbeatz/)  
 
 ## 📬 Contato - Contact
 - Email: xampsbeatz@gmail.com  
