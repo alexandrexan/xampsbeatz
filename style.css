@@ -245,6 +245,30 @@ footer {
     }
 }
 
+.language-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.lang-btn img {
+    width: 28px;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.lang-btn:hover {
+    transform: scale(1.15);
+}
+
 @media (max-width: 600px) {
     .masked-text {
         font-size: 2.5rem;
