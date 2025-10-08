@@ -36,14 +36,13 @@ document.getElementById('btn-carregar-youtube').onclick = function() {
     this.style.display = 'none';
 };
 
-// Função global para fechar playlist e mostrar o botão novamente
+//* Função global para fechar playlist e mostrar o botão novamente
 function fecharPlaylist(containerId, btnId) {
     document.getElementById(containerId).innerHTML = '';
     document.getElementById(btnId).style.display = 'flex';
 }
 
-// Tradução de textos
-
+//* Tradução de textos
 const textos = {
     "pt-BR": {
         sobreTitulo: "Quem é xampsbeatz?",

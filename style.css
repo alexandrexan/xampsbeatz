@@ -245,6 +245,7 @@ footer {
     }
 }
 
+/* Estilos para o seletor de idioma */
 .language-switcher {
     display: flex;
     justify-content: center;
