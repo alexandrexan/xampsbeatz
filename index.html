@@ -55,7 +55,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2025 XAMPSBEATZ &mdash; Todos os direitos reservados.</p>
+            <p>&copy; <span id="year"></span> XAMPSBEATZ &mdash; Todos os direitos reservados.</p>
             <div class="footer-social">
                 <a href="https://soundcloud.com/xampsbeatz" target="_blank" aria-label="SoundCloud">
                     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/soundcloud.svg" alt="SoundCloud" />
@@ -69,6 +69,10 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="traducoes.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
