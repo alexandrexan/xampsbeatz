@@ -6,6 +6,12 @@
     <title>xampsbeatz - Beatmaker de Trap, Hip Hop e Rap</title>
     <meta name="description" content="XAMPSBEATZ é beatmaker, produtor musical especializado em trap, hip hop e rap. Beats originais, criativos e autênticos para artistas e projetos.">
     <meta name="keywords" content="beatmaker, produtor musical, trap, hip hop, rap, beats originais, FL Studio, xampsbeatz, música urbana, produção musical">
+    <meta property="og:title" content="xampsbeatz - Beatmaker de Trap, Hip Hop e Rap">
+    <meta property="og:description" content="Beats originais, criativos e autênticos para artistas e projetos.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alexandrexan.github.io/xampsbeatz/">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="XAMPSBEATZ">
     <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -18,13 +24,13 @@
     </header>
 
     <div class="language-switcher">
-        <button class="lang-btn" data-lang="pt-BR" aria-label="Português">
+        <button type="button" class="lang-btn" data-lang="pt-BR" aria-label="Português" aria-pressed="false">
             <img src="https://flagcdn.com/w40/br.png" alt="Português">
         </button>
-        <button class="lang-btn" data-lang="en" aria-label="English">
+        <button type="button" class="lang-btn" data-lang="en" aria-label="English" aria-pressed="false">
             <img src="https://flagcdn.com/w40/us.png" alt="English">
         </button>
-        <button class="lang-btn" data-lang="es" aria-label="Español">
+        <button type="button" class="lang-btn" data-lang="es" aria-label="Español" aria-pressed="false">
             <img src="https://flagcdn.com/w40/es.png" alt="Español">
         </button>
     </div>
@@ -39,13 +45,13 @@
         </section>
 
         <section>
-            <button id="btn-carregar-playlist" class="btn-sc">
+            <button type="button" id="btn-carregar-playlist" class="btn-sc" aria-expanded="false">
                 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/soundcloud.svg" alt="SoundCloud" class="btn-icon" />
                 Carregar Playlist SoundCloud
             </button>
             <div id="playlist-container"></div>
             
-            <button id="btn-carregar-youtube" class="btn-yt">
+            <button type="button" id="btn-carregar-youtube" class="btn-yt" aria-expanded="false">
                 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" class="btn-icon" />
                 Carregar Playlist YouTube
             </button>
@@ -57,13 +63,13 @@
         <div class="footer-content">
             <p>&copy; <span id="year"></span> XAMPSBEATZ &mdash; Todos os direitos reservados.</p>
             <div class="footer-social">
-                <a href="https://soundcloud.com/xampsbeatz" target="_blank" aria-label="SoundCloud">
+                <a href="https://soundcloud.com/xampsbeatz" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
                     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/soundcloud.svg" alt="SoundCloud" />
                 </a>
-                <a href="https://www.youtube.com/@xampsbeatz" target="_blank" aria-label="YouTube">
+                <a href="https://www.youtube.com/@xampsbeatz" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" />
                 </a>
-                <a href="https://www.instagram.com/xampsbeatz/" target="_blank" aria-label="Instagram">
+                <a href="https://www.instagram.com/xampsbeatz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" />
                 </a>
             </div>

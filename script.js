@@ -1,92 +1,115 @@
-document.getElementById('btn-carregar-playlist').onclick = function () {
-    const container = document.getElementById('playlist-container');
-    container.innerHTML = `
-        <div class="playlist-wrapper">
-            <button class="btn-fechar-playlist btn-fechar-sc" onclick="fecharPlaylist('playlist-container', 'btn-carregar-playlist')">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/soundcloud.svg" alt="Fechar SoundCloud" class="btn-icon-fechar" />
-                Fechar Playlist
-            </button>
-            <div class="responsive-iframe">
-                <iframe class="soundcloud" scrolling="no" frameborder="no" allow="autoplay"
-                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/xampsbeatz/sets/xampsbeatz"></iframe>
-            </div>
-        </div>
-    `;
-    this.style.display = 'none';
+const playlistConfig = {
+    soundcloud: {
+        buttonId: 'btn-carregar-playlist',
+        containerId: 'playlist-container',
+        closeClass: 'btn-fechar-sc',
+        icon: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/soundcloud.svg',
+        iframeClass: 'soundcloud',
+        iframeTitle: 'SoundCloud playlist player',
+        iframeAllow: 'autoplay',
+        iframeSrc: 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/xampsbeatz/sets/xampsbeatz',
+        closeLabelKey: 'fecharSC'
+    },
+    youtube: {
+        buttonId: 'btn-carregar-youtube',
+        containerId: 'youtube-container',
+        closeClass: 'btn-fechar-yt',
+        icon: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg',
+        iframeClass: 'youtube',
+        iframeTitle: 'YouTube playlist player',
+        iframeAllow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
+        iframeSrc: 'https://www.youtube.com/embed/videoseries?si=gQua6M-dFIldHVwB&list=PLzGW71UVkXlQhNErYKmaYYGoaLG0j3XTU',
+        closeLabelKey: 'fecharYT',
+        extraIframeAttrs: 'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen'
+    }
 };
 
-document.getElementById('btn-carregar-youtube').onclick = function() {
-    const yt = document.getElementById('youtube-container');
-    yt.innerHTML = `
-        <div class="playlist-wrapper">
-            <button class="btn-fechar-playlist btn-fechar-yt" onclick="fecharPlaylist('youtube-container', 'btn-carregar-youtube')">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="Fechar YouTube" class="btn-icon-fechar" />
-                Fechar Playlist
-            </button>
-            <div class="responsive-iframe">
-                <iframe class="youtube"
-                    src="https://www.youtube.com/embed/videoseries?si=gQua6M-dFIldHVwB&amp;list=PLzGW71UVkXlQhNErYKmaYYGoaLG0j3XTU"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    `;
-    this.style.display = 'none';
-};
+function atualizarTextoBotoesFechar() {
+    Object.entries(playlistConfig).forEach(([type, config]) => {
+        const closeButton = document.querySelector(`#${config.containerId} .btn-fechar-playlist`);
 
-//* Função global para fechar playlist e mostrar o botão novamente
-function fecharPlaylist(containerId, btnId) {
-    document.getElementById(containerId).innerHTML = '';
-    document.getElementById(btnId).style.display = 'flex';
+        if (!closeButton) {
+            return;
+        }
+
+        closeButton.innerHTML = `
+            <img src="${config.icon}" alt="" class="btn-icon-fechar" />
+            ${textos[idiomaAtual][config.closeLabelKey]}
+        `;
+        closeButton.dataset.type = type;
+    });
 }
 
-document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => traduzir(btn.dataset.lang));
-});
+function renderPlaylist(type) {
+    const config = playlistConfig[type];
+    const button = document.getElementById(config.buttonId);
+    const container = document.getElementById(config.containerId);
+    const closeLabel = textos[idiomaAtual][config.closeLabelKey];
+    const extraAttrs = config.extraIframeAttrs ?? '';
 
-document.getElementById('btn-carregar-playlist').onclick = function () {
-    const t = textos[idiomaAtual];
-    const container = document.getElementById('playlist-container');
     container.innerHTML = `
         <div class="playlist-wrapper">
-            <button class="btn-fechar-playlist btn-fechar-sc" onclick="fecharPlaylist('playlist-container', 'btn-carregar-playlist')">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/soundcloud.svg" alt="Fechar SoundCloud" class="btn-icon-fechar" />
-                ${t.fecharSC}
+            <button type="button" class="btn-fechar-playlist ${config.closeClass}" data-type="${type}">
+                <img src="${config.icon}" alt="" class="btn-icon-fechar" />
+                ${closeLabel}
             </button>
             <div class="responsive-iframe">
-                <iframe class="soundcloud" scrolling="no" frameborder="no" allow="autoplay"
-                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/xampsbeatz/sets/xampsbeatz"></iframe>
-            </div>
-        </div>
-    `;
-    this.style.display = 'none';
-};
-
-document.getElementById('btn-carregar-youtube').onclick = function() {
-    const t = textos[idiomaAtual];
-    const yt = document.getElementById('youtube-container');
-    yt.innerHTML = `
-        <div class="playlist-wrapper">
-            <button class="btn-fechar-playlist btn-fechar-yt" onclick="fecharPlaylist('youtube-container', 'btn-carregar-youtube')">
-                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="Fechar YouTube" class="btn-icon-fechar" />
-                ${t.fecharYT}
-            </button>
-            <div class="responsive-iframe">
-                <iframe class="youtube"
-                    src="https://www.youtube.com/embed/videoseries?si=gQua6M-dFIldHVwB&amp;list=PLzGW71UVkXlQhNErYKmaYYGoaLG0j3XTU"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                <iframe
+                    class="${config.iframeClass}"
+                    title="${config.iframeTitle}"
+                    loading="lazy"
+                    allow="${config.iframeAllow}"
+                    src="${config.iframeSrc}"
+                    ${extraAttrs}>
                 </iframe>
             </div>
         </div>
     `;
-    this.style.display = 'none';
-};
 
-function fecharPlaylist(containerId, btnId) {
-    document.getElementById(containerId).innerHTML = '';
-    document.getElementById(btnId).style.display = 'flex';
+    button.style.display = 'none';
+    button.setAttribute('aria-expanded', 'true');
+}
+
+function fecharPlaylist(type) {
+    const config = playlistConfig[type];
+    const container = document.getElementById(config.containerId);
+    const button = document.getElementById(config.buttonId);
+
+    container.innerHTML = '';
+    button.style.display = 'flex';
+    button.setAttribute('aria-expanded', 'false');
+}
+
+document.addEventListener('click', event => {
+    const closeButton = event.target.closest('.btn-fechar-playlist');
+
+    if (closeButton) {
+        fecharPlaylist(closeButton.dataset.type);
+    }
+});
+
+document.getElementById('btn-carregar-playlist').addEventListener('click', () => {
+    renderPlaylist('soundcloud');
+});
+
+document.getElementById('btn-carregar-youtube').addEventListener('click', () => {
+    renderPlaylist('youtube');
+});
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        traduzir(btn.dataset.lang);
+        atualizarTextoBotoesFechar();
+
+        document.querySelectorAll('.lang-btn').forEach(el => {
+            el.classList.toggle('active', el === btn);
+            el.setAttribute('aria-pressed', String(el === btn));
+        });
+    });
+});
+
+const initialLangButton = document.querySelector('.lang-btn[data-lang="pt-BR"]');
+if (initialLangButton) {
+    initialLangButton.classList.add('active');
+    initialLangButton.setAttribute('aria-pressed', 'true');
 }
