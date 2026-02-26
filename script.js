@@ -18,11 +18,27 @@ const playlistConfig = {
         iframeClass: 'youtube',
         iframeTitle: 'YouTube playlist player',
         iframeAllow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
-        iframeSrc: 'https://www.youtube.com/embed/videoseries?si=gQua6M-dFIldHVwB&amp;list=PLzGW71UVkXlQhNErYKmaYYGoaLG0j3XTU',
+        iframeSrc: 'https://www.youtube.com/embed/videoseries?si=gQua6M-dFIldHVwB&list=PLzGW71UVkXlQhNErYKmaYYGoaLG0j3XTU',
         closeLabelKey: 'fecharYT',
         extraIframeAttrs: 'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen'
     }
 };
+
+function atualizarTextoBotoesFechar() {
+    Object.entries(playlistConfig).forEach(([type, config]) => {
+        const closeButton = document.querySelector(`#${config.containerId} .btn-fechar-playlist`);
+
+        if (!closeButton) {
+            return;
+        }
+
+        closeButton.innerHTML = `
+            <img src="${config.icon}" alt="" class="btn-icon-fechar" />
+            ${textos[idiomaAtual][config.closeLabelKey]}
+        `;
+        closeButton.dataset.type = type;
+    });
+}
 
 function renderPlaylist(type) {
     const config = playlistConfig[type];
@@ -83,6 +99,8 @@ document.getElementById('btn-carregar-youtube').addEventListener('click', () => 
 document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         traduzir(btn.dataset.lang);
+        atualizarTextoBotoesFechar();
+
         document.querySelectorAll('.lang-btn').forEach(el => {
             el.classList.toggle('active', el === btn);
             el.setAttribute('aria-pressed', String(el === btn));
