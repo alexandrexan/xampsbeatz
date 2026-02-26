@@ -270,6 +270,20 @@ footer {
     transform: scale(1.15);
 }
 
+
+.lang-btn:focus-visible,
+.btn-sc:focus-visible,
+.btn-yt:focus-visible,
+.btn-fechar-playlist:focus-visible,
+.footer-social a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.lang-btn.active {
+    transform: scale(1.15);
+}
+
 @media (max-width: 600px) {
     .masked-text {
         font-size: 2.5rem;
